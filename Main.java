@@ -7,7 +7,7 @@ public class Main {
         String[] names = {"Артур", "Анастасия", "Олег", "Марат", "Диана", "Светлана", "Александр", "Сергей", "Давид", "Алексей"};
         boolean[] genders = {false, true, false, false, true, true, false, false, false, false};
         int[] courses = {4, 1, 4, 3, 2, 1, 1, 2, 3, 1};
-        String[] groups = {"ПМ41", "ПМ11", "ПМ41", "ИВТ32", "Cyber23", "ПМ11", "ПМ12", "Cyber23", "ИВТ32", "ПМ11"};
+        int[] groups = {41, 11, 41, 32, 23, 11, 12, 23, 32, 11};
         String[] directions = {"ПМиИ", "ПМиИ", "ПМиИ", "ИВТ", "Кибербезопасность", "ПМиИ", "ПМиИ", "Кибербезопасность", "ИВТ", "ПМиИ"};
 
 
@@ -15,6 +15,10 @@ public class Main {
             facultet.matriculation(surnames[i], names[i], genders[i], courses[i], groups[i], directions[i]);
         }
         facultet.studentsListalphabetical();
+
+        System.out.println();
+
+        facultet.studentsList();
 
     }
 }

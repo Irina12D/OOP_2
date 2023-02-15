@@ -2,14 +2,14 @@ public class Student {
     private String lastName;
     private String firstName;
     private int yearStudy;
-    private String group;
+    private int group;
     private String direction;
     private String faculty;
     private int ID;
     private boolean isFemale;
 
 
-    Student(String lastName, String firstName, boolean isFemale, int yearStudy, String group, String direction, String faculty, int ID) {
+    Student(String lastName, String firstName, boolean isFemale, int yearStudy, int group, String direction, String faculty, int ID) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.isFemale = isFemale;
@@ -32,7 +32,7 @@ public class Student {
         this.yearStudy = yearStudy;
     }
 
-    public void setGroup(String group) {
+    public void setGroup(int group) {
         this.group = group;
     }
 
@@ -60,7 +60,7 @@ public class Student {
         return yearStudy;
     }
 
-    public String getGroup() {
+    public int getGroup() {
         return group;
     }
 
@@ -78,7 +78,7 @@ public class Student {
 
     public String getInfo() {
         String ending = (isFemale)? "ка": "";
-        return String.format("%s %s - студент%s %d курса группы %s факультета %s направления %s", lastName, firstName,ending, yearStudy, group, faculty, direction);
+        return String.format("%s %s - студент%s %d курса %d группы факультета %s направления %s", lastName, firstName,ending, yearStudy, group, faculty, direction);
     }
 
     @Override
