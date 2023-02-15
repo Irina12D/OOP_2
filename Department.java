@@ -18,11 +18,13 @@ public class Department {
         students = new ArrayList<>();
     }
 
+    // метод зачисления студента 
     public void matriculation(String surname, String name, boolean gender, int course, int group, String direction){
         Student student = new Student(surname, name, gender, course, group, direction, designation, generateID++);
         students.add(student);
     }
-
+    
+    // метод поиска студента (по ФИО, группе, курсу)
     private int findStudent(String surName, String name, int course, int group)
     {
         if (students.isEmpty())
@@ -37,6 +39,7 @@ public class Department {
         return -1;
     }
 
+    // метод отчисления студента
     public void expulsion(String surName, String name, int course, int group)
     {
         int searchvalue = findStudent(surName, name, course, group);
@@ -45,7 +48,8 @@ public class Department {
         else System.out.println("Отчисление студента невозможно");
     }
 
-    public ArrayList<Student> groupList(int group, ArrayList<Student> list)
+    // метод создания списка студентов заданной группы
+    private ArrayList<Student> groupList(int group, ArrayList<Student> list)
     {
         if (list.isEmpty()) return null;
         ArrayList<Student> filter = new ArrayList<>();
@@ -57,7 +61,8 @@ public class Department {
         return filter;
     }
 
-    public ArrayList<Student> courseList(int course, ArrayList<Student> list)
+    // метод создания списка студентов заданного курса
+    private ArrayList<Student> courseList(int course, ArrayList<Student> list)
     {
         if (list.isEmpty()) return null;
         ArrayList<Student> filter = new ArrayList<>();
@@ -69,6 +74,7 @@ public class Department {
         return filter;
     }
 
+    // метод выводa всех студентов факультет в алфавитном порядке
     public void studentsListalphabetical(){
         System.out.println("Список всех студентов факультета:");
         ArrayList<Student> toPrint = sortResult(students);
@@ -76,7 +82,7 @@ public class Department {
             System.out.println(" " + st.getInfo());
     }
 
-
+    // метод вывода студентов по курсам, в каждом курсе по направлению (по группам), а в каждой группе - в алфавитном порядке 
     public void studentsList(){
         System.out.println("Список студентов факультета:");
         for (int i=1; i<=4; i++) {
@@ -95,7 +101,8 @@ public class Department {
         }
     }
 
-    public ArrayList<Student> sortResult(ArrayList<Student> list)
+    // метод сортировки студентов в алфавитном порядке
+    private ArrayList<Student> sortResult(ArrayList<Student> list)
     {
         boolean obmen = true;
         int n = list.size();
